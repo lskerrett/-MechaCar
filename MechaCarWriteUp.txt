@@ -1,0 +1,64 @@
+MPG Regression
+
+I designed a linear model design a linear model that predicts the mpg of MechaCar prototypes using the following variables in the MechaCar dataset: vehicle.length, vehicle.weight, spoiler.angle, ground.clearance  and AW. 
+
+- The variables which provide a non-random amount of variance to the mpg values are: vehicle length and ground clearance. 
+- The slope of the linear model is not considered to be zero as the p-value of the hypothisis: 5.35e-11. which is smaller then 0.05 significant level.
+- This linear model predicts mpg of MechaCar prototypes effectively, because the model has r-squared value of 71.
+
+Suspension Coil Summary
+
+The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per inch. Here's the summary statistics table: 
+
+  Manufacturing_Lot  Mean Median Variance    SD
+  <chr>             <dbl>  <dbl>    <dbl> <dbl>
+1 Lot1              1500.  1500.     1.15  1.07
+2 Lot2              1500.  1499.    10.1   3.18
+3 Lot3              1499.  1498.   220.   14.8 
+
+Mean          Median       Variance      SD
+1499.531      1499.747     76.23459       8.731242
+
+With a variance of 76.2, the current manufacturing data meet the  design specifications which dictates that that the variance of the suspension coils must not exceed 100 pounds per inch. 
+
+Suspension Coil T-Test
+
+For all 3 lots, the suspension coil's pound-per-inch results are statistically different from the mean population results of 1,500 pounds per inch.
+
+> t.test(coil_1$PSI, mu=1500)
+
+data:  coil_1$PSI
+t = 0.12028, df = 49, p-value = 0.9048
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1499.714 1500.322
+sample estimates:
+mean of x 
+ 1500.018 
+
+> t.test(coil_2$PSI, mu=1500)
+
+data:  coil_2$PSI
+t = -0.95324, df = 49, p-value = 0.3451
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1498.666 1500.476
+sample estimates:
+mean of x 
+ 1499.571 
+
+> t.test(coil_3$PSI, mu=1500)
+
+Data:  coil_3$PSI
+t = -0.47484, df = 49, p-value = 0.637
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1494.789 1503.219
+sample estimates:
+mean of x 
+ 1499.004 
+ 
+Design Your Own Study
+
+The metrics that would be of interest to the of consumer will be interested in will be around performance safety, design, and cost.  The data should be collected using focus group We will run multiple linear regression to analyse the data and see what characteristic have a larger impact on customer satisfaction.
+
